@@ -1,11 +1,13 @@
 import { Search } from "lucide-react";
 import { useState } from "react";
 
-function InputCdd() {
+function InputCdd({ aoBuscar }) {
   const [cidade, setCidade] = useState("");
 
   function handleBuscar() {
-    console.log(cidade);
+    if (cidade.trim() !== "") {
+      aoBuscar(cidade);
+    }
   }
 
   return (
@@ -21,7 +23,7 @@ function InputCdd() {
 
         <div className="bg-emerald-300 rounded-2xl w-20 h-8 flex items-center justify-center shadow ">
           <button
-            className=" text-sm text-amber-50 text-center w-20 h-8 rounded-2xl focus:ring-2 focus:ring-emerald-300 shadow"
+            className=" text-sm text-amber-50 text-center w-20 h-8 rounded-2xl focus:ring-2 focus:ring-emerald-500 shadow"
             value={cidade}
             onClick={handleBuscar}
           >
