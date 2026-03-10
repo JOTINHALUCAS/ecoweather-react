@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import InputCdd from "./components/InputCdd";
 import wordloc from "./assets/icons/wordloc.jpg";
 import { useState } from "react";
+import { CloudRain } from "lucide-react";
 
 function App() {
   const [weather, setWeather] = useState(null);
@@ -37,10 +38,20 @@ function App() {
           </div>
         </div>
       ) : (
-        <div className="max-w-md mx-auto p-8 text-center">
-          <h2 className="text-2xl font-bold">{weather.name}</h2>
-          <p className="text-5xl">{Math.round(weather.main.temp)}°C</p>
-          <p>{weather.weather[0].description}</p>
+        <div className="max-w-md mx-auto p-8 text-center shadow bg-gradient-to-r from-blue-700  to-blue-500 rounded-md mt-2">
+          <div>
+            <h2 className="text-md font-bold text-amber-50">{weather.name}</h2>
+            <p className="text-6xl font-bold text-amber-50">
+              {Math.round(weather.main.temp)}°C
+            </p>
+          </div>
+
+          <div>
+            <p className="text-md font-normal text-gray-400">
+              {weather.weather[0].description}
+            </p>
+          </div>
+
           <button onClick={() => setWeather(null)} className="mt-4 underline">
             Fazer nova busca
           </button>
@@ -49,5 +60,8 @@ function App() {
     </div>
   );
 }
-
+/* thermometer para o termometro */
+/* cloud-rain nuvem com chuvisco */
+/* wind - vento */
+/* droplets - gotas de agua*/
 export default App;
